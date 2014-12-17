@@ -1,0 +1,26 @@
+{% extends "foundation/base.html" %}
+
+{% load static %}
+
+{% block css %}
+  <link href="{% static "css/global.css" %}" rel="stylesheet"/>
+  <link href='http://fonts.googleapis.com/css?family=GFS+Didot&subset=greek' rel='stylesheet' type='text/css' />
+{% endblock css %}
+
+{% block head_js %}
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+{% endblock head_js %}
+
+{% block base_body %}
+  <nav class="top-bar" data-topbar role="navigation" id="global-nav">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="#">Vote that Greek</a></h1>
+      </li>
+    </ul>
+  </nav>
+
+  {% block content %}
+
+  {% endblock content %}
+{% endblock base_body %}

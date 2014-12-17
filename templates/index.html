@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="row" id="letters">
+    {% for l in letters %}
+      <a href="{% url 'vote' l.0 %}">
+        <div class="small-3 columns letter_box"><div class="letter">{{ l.1.0 }} {{ l.1.1 }}</div></div>
+      </a>
+    {% endfor %}
+  </div>
+{% endblock content %}
