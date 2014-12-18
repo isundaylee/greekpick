@@ -10,7 +10,7 @@
   <div class="row" id="letters">
     {% for l in letters %}
       <a href="javascript: vote_for('{{ l.0 }}'); " id="link_{{ l.0 }}">
-        <div class="small-6 medium-4 large-3 columns letter_box" id="box_{{ l.0 }}"><div class="letter">{{ l.1.0 }} {{ l.1.1 }}</div></div>
+        <div class="small-12 medium-4 large-3 columns letter_box" id="box_{{ l.0 }}"><div class="letter">{{ l.1.0 }} {{ l.1.1 }}</div></div>
       </a>
     {% endfor %}
   </div>
