@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'foundation',
-    'greekpick',
+    'poll',
     'jquery',
     'django_ajax',
 )

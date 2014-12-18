@@ -6,7 +6,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', 'greekpick.views.index', name='index'),
-    url(r'^results$', 'greekpick.views.results', name='results'),
-    url(r'^vote/(.*)$', 'greekpick.views.vote', name='vote'),
+    url(r'^$', 'poll.views.index', name='index'),
+    url(r'^results$', 'poll.views.results', name='results'),
+    url(r'^vote/(.*)$', 'poll.views.vote', name='vote'),
 )

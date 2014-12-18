@@ -6,7 +6,7 @@ from django_ajax.decorators import ajax
 
 from ipware.ip import get_ip
 
-from greekpick.models import Vote
+from poll.models import Vote
 
 def index(request):
   return render(request, 'index.html', {
