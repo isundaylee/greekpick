@@ -1,5 +1,9 @@
 {% extends "foundation/base.html" %}
 
+{% block title %}
+  Vote that Greek
+{% endblock title %}
+
 {% load static %}
 
 {% block css %}
@@ -9,6 +13,7 @@
 
 {% block head_js %}
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="{% static "js/index.js" %}"></script>
 {% endblock head_js %}
 
 {% block base_body %}

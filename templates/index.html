@@ -1,11 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+  <div class="row">
+    <h1>Pick Three Greek Letters</h1>
+    <p class="hint">Then you will be taken to the result page :) </p>
+  </div>
+
   <div class="row" id="letters">
     {% for l in letters %}
-      <a href="{% url 'vote' l.0 %}">
-        <div class="small-3 columns letter_box"><div class="letter">{{ l.1.0 }} {{ l.1.1 }}</div></div>
+      <a href="javascript: vote_for('{{ l.0 }}'); " id="link_{{ l.0 }}">
+        <div class="small-3 columns letter_box" id="box_{{ l.0 }}"><div class="letter">{{ l.1.0 }} {{ l.1.1 }}</div></div>
       </a>
     {% endfor %}
+  </div>
+
+  <div class="row">
+    <p class="hint">Thanks for playing :) </p>
   </div>
 {% endblock content %}

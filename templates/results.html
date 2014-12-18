@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="row">
+    <h1>Greek Letter Hall of Loveliness</h1>
+    <p class="hint">Thanks for your contribution :)</p>
+  </div>
+
+  <p>{{ p }}</p>
+
+  {% for l in letters %}
+    <div class="row results_row">
+      <div class="small-1 columns results_letter">{{ l.1.0 }} {{ l.1.1 }}</div>
+      <div class="small-10 columns">
+        <div class="popularity" style="width: {{ l.3 }}%; ">&nbsp; </div>
+      </div>
+      <div class="small-1 columns">{{ l.2 }}</div>
+    </div>
+  {% endfor %}
+{% endblock content %}

@@ -7,5 +7,6 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'greekpick.views.index', name='index'),
+    url(r'^results$', 'greekpick.views.results', name='results'),
     url(r'^vote/(.*)$', 'greekpick.views.vote', name='vote'),
 )

@@ -1,38 +1,30 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.conf import settings
+
+from django_ajax.decorators import ajax
+
+from greekpick.models import Vote
 
 def index(request):
-  letter_list = (
-    ('alpha', ('Α', 'α')),
-    ('beta', ('Β', 'β')),
-    ('gamma', ('Γ', 'γ')),
-    ('delta', ('Δ', 'δ')),
-    ('epsilon', ('Ε', 'ε')),
-    ('zeta', ('Ζ', 'ζ')),
-    ('eta', ('Η', 'η')),
-    ('theta', ('Θ', 'θ')),
-    ('iota', ('Ι', 'ι')),
-    ('kappa', ('Κ', 'κ')),
-    ('lambda', ('Λ', 'λ')),
-    ('mu', ('Μ', 'μ')),
-    ('nu', ('Ν', 'ν')),
-    ('xi', ('Ξ', 'ξ')),
-    ('omicon', ('Ο', 'ο')),
-    ('pi', ('Π', 'π')),
-    ('rho', ('Ρ', 'ρ')),
-    ('sigma', ('Σ', 'σ')),
-    ('tau', ('Τ', 'τ')),
-    ('upsilon', ('Υ', 'υ')),
-    ('phi', ('Φ', 'φ')),
-    ('chi', ('Χ', 'χ')),
-    ('psi', ('Ψ', 'ψ')),
-    ('omega', ('Ω', 'ω'))
-  )
-
   return render(request, 'index.html', {
-    'letters': letter_list
+    'letters': settings.LETTER_LIST
   })
 
 
+@ajax
 def vote(request, letter):
-  return HttpResponse(letter)
+  Vote.objects.create(choice = letter)
+  return 1
+
+def results(request):
+  bar = max(settings.LETTER_LIST, key = lambda x: Vote.objects.count_choice(x[0]))
+  max_value = Vote.objects.count_choice(bar[0])
+  if max_value == 0:
+    max_value = 1
+  letters = [(x[0], x[1], Vote.objects.count_choice(x[0]), int(100.0 * Vote.objects.count_choice(x[0]) / max_value)) for x in settings.LETTER_LIST]
+  letters = sorted(letters, key = lambda x: -x[2])
+
+  return render(request, 'results.html', {
+    'letters': letters
+  })
