@@ -6,6 +6,8 @@ class VoteManager(models.Manager):
 
 class Vote(models.Model):
     choice = models.TextField()
+    time_added = models.DateTimeField(auto_now_add = True, null = True)
+    ip = models.TextField(null = True)
 
     objects = VoteManager()
 

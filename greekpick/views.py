@@ -4,6 +4,8 @@ from django.conf import settings
 
 from django_ajax.decorators import ajax
 
+from ipware.ip import get_ip
+
 from greekpick.models import Vote
 
 def index(request):
@@ -11,10 +13,9 @@ def index(request):
     'letters': settings.LETTER_LIST
   })
 
-
 @ajax
 def vote(request, letter):
-  Vote.objects.create(choice = letter)
+  Vote.objects.create(choice = letter, ip = get_ip(request))
   return 1
 
 def results(request):
