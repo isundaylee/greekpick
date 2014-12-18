@@ -9,12 +9,12 @@
   <p>{{ p }}</p>
 
   {% for l in letters %}
-    <div class="row results_row">
-      <div class="small-3 large-1 columns results_letter">{{ l.1.0 }} {{ l.1.1 }}</div>
+    <div class="row results-row">
+      <div class="small-3 large-1 columns results-letter">{{ l.1.0 }} {{ l.1.1 }}</div>
       <div class="small-6 large-10 columns">
         <div class="popularity" style="width: {{ l.3 }}%; ">&nbsp; </div>
       </div>
-      <div class="small-3 large-1 columns">{{ l.2 }}</div>
+      <div class="small-3 large-1 columns results-count">{{ l.2 }}</div>
     </div>
   {% endfor %}
 {% endblock content %}
