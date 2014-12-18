@@ -10,7 +10,8 @@ from poll.models import Vote
 
 def index(request):
   return render(request, 'index.html', {
-    'letters': settings.LETTER_LIST
+    'letters': settings.LETTER_LIST,
+    'poll_active': True
   })
 
 @ajax
@@ -27,5 +28,6 @@ def results(request):
   letters = sorted(letters, key = lambda x: -x[2])
 
   return render(request, 'results.html', {
-    'letters': letters
+    'letters': letters,
+    'results_active': True
   })

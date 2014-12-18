@@ -20,9 +20,16 @@
   <nav class="top-bar" data-topbar role="navigation" id="global-nav">
     <ul class="title-area">
       <li class="name">
-        <h1><a href="#">Vote that Greek</a></h1>
+        <h1><a href="/">Vote that Greek</a></h1>
       </li>
     </ul>
+
+    <section class="top-bar-section">
+      <ul class="right">
+        <li class="{{ poll_active | yesno:'active,' }}"><a href="/">The Lovely Poll</a></li>
+        <li class="{{ results_active | yesno:'active,' }}"><a href="/results">Results</a></li>
+      </ul>
+    </section>
   </nav>
 
   {% block content %}
