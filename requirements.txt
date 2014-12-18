@@ -1,7 +1,7 @@
 Django==1.7.1
 dj-database-url==0.3.0
 dj-static==0.0.6
-django-ajax==2.2.12
+djangoajax==2.2.12
 django-jquery==1.9.1
 django-toolbelt==0.0.1
 django-zurb-foundation==5.4.7.1
